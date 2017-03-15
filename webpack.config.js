@@ -1,5 +1,20 @@
+var webpack = require('webpack');
+
 module.exports = {
-  entry: './app/app.jsx',// where webpack starts compiling
+  entry: [// use script loader bc these regular script files not packaged for webpack
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/foundation.min.js',
+    './app/app.jsx',
+  ],// where webpack starts compiling
+  externals: {// key:value, key is module, value is variable name to use
+    jquery: 'jQuery'
+  },
+  plugins: [// create shortcuts, key:val, what we see: what gets loaded
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
+    })
+  ],
   output: {
     path: __dirname, // dirname is path to current folder
     filename: './public/bundle.js'
