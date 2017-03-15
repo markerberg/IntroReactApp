@@ -5,12 +5,12 @@ const PORT = process.env.PORT || 3000;
 
 // middleware to change https to http for api
 app.use(function(req, res, next){
-  // check if headers has http req
-  // process req normally if so, else redirect
-  if(req.headers['x-forwarded-proto'] === 'http'){
-    next();
-  } else {
+  // check if headers has https req
+  // if so redirect to http, else go normally
+  if(req.headers['x-forwarded-proto'] === 'https'){
     res.redirect('http://' + req.hostname + req.url);
+  } else {
+    next();
   }
 });
 
