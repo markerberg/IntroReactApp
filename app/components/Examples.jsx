@@ -13,7 +13,7 @@ var Examples = (props) => {
   // we link to homepage with ?query param
   return(
     <div>
-      <h1 className="text-center">Examples</h1>
+      <h1 className="text-center page-title">Examples</h1>
       <p>Here are a few example locations</p>
       <ol>
         <li>
