@@ -48,7 +48,7 @@ var Weather = React.createClass({
     }
   },
   // listen for changes and update component
-  componentWillRecieveProps: function(newProps) {
+  componentWillReceiveProps: function(newProps) {
     var location = newProps.location.query.location;
 
     if(location && location.length > 0) {
