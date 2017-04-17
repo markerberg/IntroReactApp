@@ -1,5 +1,5 @@
 var React = require('react');
-var {Link, IndexLink} = require('react-router');
+var {Link, IndexLink} = require('react-router'); // es6 destructuring
 
 var Nav = React.createClass({
   onSearch: function (e) {
@@ -20,7 +20,7 @@ var Nav = React.createClass({
       <div className="top-bar">
         <div className="top-bar-left">
           <ul className="menu">
-            <li className="menu-text">React App</li>
+            <li className="menu-text">MarkApp<a href="https://www.linkedin.com/in/mark-goberdhan" target="_blank"></a></li>
             <li>
               <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
             </li>
@@ -29,6 +29,12 @@ var Nav = React.createClass({
             </li>
             <li>
               <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
+            </li>
+            <li>
+              <Link to="/" activeClassName="active">Timer</Link>
+            </li>
+            <li>
+              <Link to="/" activeClassName="active">Countdown</Link>
             </li>
           </ul>
         </div>
