@@ -22,19 +22,19 @@ var Nav = React.createClass({
           <ul className="menu">
             <li className="menu-text">MarkApp<a href="https://www.linkedin.com/in/mark-goberdhan" target="_blank"></a></li>
             <li>
-              <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
+              <IndexLink to="/" activeClassName="active">Get Weather</IndexLink>
             </li>
             <li>
-              <Link to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</Link>
+              <Link to="/about" activeClassName="active">About</Link>
             </li>
             <li>
-              <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
+              <Link to="/examples" activeClassName="active">Examples</Link>
             </li>
             <li>
-              <Link to="/" activeClassName="active">Timer</Link>
+              <Link to="/timer" activeClassName="active">Timer</Link>
             </li>
             <li>
-              <Link to="/" activeClassName="active">Countdown</Link>
+              <Link to="/countdown" activeClassName="active">Countdown</Link>
             </li>
           </ul>
         </div>

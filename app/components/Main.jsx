@@ -17,4 +17,5 @@ var Main = (props) => {
 module.exports = Main;
 // for {props.children}
 // app- app.jsx everyhting between open-close route main path is its children
-// specify where to put this components children- under h2 tag
+// this lets us render those components to the page
+// specify where to put this components children

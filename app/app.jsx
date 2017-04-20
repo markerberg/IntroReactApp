@@ -7,6 +7,8 @@ var Main = require('Main');
 var Weather = require('Weather');
 var About = require('About');
 var Examples = require('Examples');
+var Timer = require('Timer');
+var Countdown = require('Countdown');
 
 // Load foundation
 // we need to inject into html so styles show up, we use style!
@@ -17,11 +19,15 @@ $(document).foundation();
 // app css
 require('style!css!sass!applicationStyles')
 
+// Route path="/" is the component that will always be rendered
+// IndexRoute is component that will render if nothing else renders, if the path is just "/"
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
       <Route path="about" component={About}/>
       <Route path="examples" component={Examples}/>
+      <Route path="countdown" component={Countdown} />
+      <Route path="timer" component={Timer} />
       <IndexRoute component={Weather}/>
     </Route>
   </Router>,
