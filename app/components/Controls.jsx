@@ -5,7 +5,8 @@ var Controls = React.createClass({
     countdownStatus: React.PropTypes.string.isRequired,
     onStatusChange: React.PropTypes.func.isRequired
   },
-  // we make a function that returns a function
+  // in all our onClick, we're calling funcs and we pass whats returned, but we need return a func
+  // bc our onClick needs to be passed a function, so we use currying to return a func from a func
   onStatusChange: function (newStatus) {
     return () => {
       this.props.onStatusChange(newStatus);

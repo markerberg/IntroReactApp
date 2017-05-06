@@ -29,6 +29,20 @@ var Countdown = React.createClass({
       }
     }
   },
+  // componentWillUpdate: function (nextProps, nextState) {
+  //    fire before there is update to prop or state
+  // },
+  // componentDidMount: function () {
+  //   fire after everything gets rendered to screen
+  // },
+  // componentWillMount: function () {
+  //   fire before component first gets loaded
+  // },
+  componentWillUnmount: function () {
+    // fire before component removed from DOM
+    clearInterval(this.timer);
+    this.timer = undefined;
+  },
   startTimer: function () {
     this.timer = setInterval(() => { // run func every second
       var newCount = this.state.count - 1;
@@ -37,6 +51,10 @@ var Countdown = React.createClass({
         // if newCount>=0 true use newCount value, else false we use 0
         count: newCount >= 0 ? newCount : 0
       });
+      // if countdown complete, no reason to continue interval
+      if(newCount === 0) {
+        this.setState({countdownStatus: 'stopped'});
+      }
     }, 1000);
   },
   handleSetCountdown: function (seconds) {
