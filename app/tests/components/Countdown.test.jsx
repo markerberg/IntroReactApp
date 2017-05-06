@@ -13,8 +13,8 @@ describe('Countdown', () => {
 
   // we include done as param so test dont fail with mocha
   // test will stop when we call done. bc we run an async command
-  describe('handleSetCountdown', (done) => {
-    it('should set state to start and countdown',() => {
+  describe('handleSetCountdown', () => {
+    it('should set state to start and countdown',(done) => {
       // render countdown component
       var countdown = TestUtils.renderIntoDocument(<Countdown/>);
       // call handleSetCountdown
@@ -31,7 +31,7 @@ describe('Countdown', () => {
       }, 1001)
     });
 
-    it('should not set count less than zero',() => {
+    it('should not set count less than zero',(done) => {
       var countdown = TestUtils.renderIntoDocument(<Countdown/>);
       countdown.handleSetCountdown(1);
 
@@ -40,6 +40,32 @@ describe('Countdown', () => {
         expect(countdown.state.count).toBe(0);
         done();
       }, 3001)
+    });
+
+
+//when we have setTimeout in test, they're async, so we must use done
+    it('should pause countdown on paused state', (done) => {
+      var countdown = TestUtils.renderIntoDocument(<Countdown/>);
+      countdown.handleSetCountdown(3);
+      countdown.handleStatusChange('paused');
+
+      setTimeout(() => {
+        expect(countdown.state.count).toBe(3);
+        expect(countdown.state.countdownStatus).toBe('paused');
+        done();
+      }, 1001);
+    });
+
+    it('should reset countdown on stop state', (done) => {
+      var countdown = TestUtils.renderIntoDocument(<Countdown/>);
+      countdown.handleSetCountdown(3);
+      countdown.handleStatusChange('stopped');
+
+      setTimeout(() => {
+        expect(countdown.state.count).toBe(0);
+        expect(countdown.state.countdownStatus).toBe('stopped');
+        done();
+      }, 1001);
     });
   });
 });
