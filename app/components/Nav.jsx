@@ -31,7 +31,7 @@ var Nav = React.createClass({
               <Link to="/examples" activeClassName="active">Examples</Link>
             </li>
             <li>
-              <Link to="/timer" activeClassName="active">Timer</Link>
+              <Link to="/todo" activeClassName="active">Todo</Link>
             </li>
             <li>
               <Link to="/countdown" activeClassName="active">Countdown</Link>

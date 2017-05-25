@@ -9,6 +9,7 @@ var About = require('About');
 var Examples = require('Examples');
 var Timer = require('Timer');
 var Countdown = require('Countdown');
+var TodoApp = require('TodoApp');
 
 // Load foundation
 // we need to inject into html so styles show up, we use style!
@@ -27,7 +28,7 @@ ReactDOM.render(
       <Route path="about" component={About}/>
       <Route path="examples" component={Examples}/>
       <Route path="countdown" component={Countdown} />
-      <Route path="timer" component={Timer} />
+      <Route path="todo" component={TodoApp} />
       <IndexRoute component={Weather}/>
     </Route>
   </Router>,

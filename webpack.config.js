@@ -21,6 +21,10 @@ module.exports = {
   },
   resolve: {
     root: __dirname, //path to whatever file your in
+    modulesDirectories:[ // specify folders webpack should look in
+      'node_modules',
+      './app/components'
+    ],
     alias: {
       Main: 'app/components/Main.jsx',
       Nav: 'app/components/Nav.jsx',
