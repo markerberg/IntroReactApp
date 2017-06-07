@@ -9,7 +9,7 @@ var TodoList = React.createClass({
         // when iterating over array and making components, we must give each a unique key id
         // use spread operator, spread out all attr to be used as individual props
         return(
-          <Todo key={todo.id} {...todo}/>
+          <Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
         );
       });
     };
